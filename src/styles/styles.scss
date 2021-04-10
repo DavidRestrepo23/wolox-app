@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 300 !important;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  
+  
+  ul {
+    display: flex;
+    li {
+      list-style: none;
+      margin: 0 20px;
+      font-weight: 600;
+    }
+  }
+}
+
+.section1 {
+  margin-top: 30px;
+  background-image: url("../assets/Backgrounds/Bg_Footer@2x.png");
+  height: 500px;
+  background-size: contain;
+  background-position: bottom;
+
+  p {
+    margin: 0;
+    font-size: 35px;
+    span {
+      color: #9fc739;
+      font-weight: 700;
+    }
+  }
+}
+
+.section2 {
+  background: #e4edfc;
+  width: 100%;
+
+  .bg-woloxers {
+    background-image: url("../assets/img_woloxer.png");
+    height: 422px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 35px;
+
+      .txt-followers {
+        color: #9fc739;
+        font-size: 35px;
+      }
+
+      .txt-woloxers {
+        color: #3fa8df;
+        font-size: 35px;
+      }
+    }
+
+    .tw-wolox {
+      color: #fff;
+    }
+
+    .tw-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .txt-works {
+    font-size: 28px;
+    .txt1 {
+      color: #3fa8df;
+      font-weight: 700;
+    }
+    .txt2 {
+      color: #9fc739;
+      font-weight: 700;
+    }
+  }
+}
+
+.linkButton {
+  border: 1px solid #3fa8df;
+  padding: 7px 50px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #000;
+
+  &.fullColor {
+    background: #3fa8df;
+    color: #fff;
+  }
+
+  &.txt-white {
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  &:hover {
+    background: #3fa8df;
+    color: #fff;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+.benefits {
+  h2 {
+    font-weight: 500;
+  }
+
+  .item-box {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 60px;
+    }
+
+    p {
+      font-weight: 500;
+    }
+  }
+}
+
+footer {
+  background-image: url("../assets/Backgrounds/Bg_Footer@2x.png");
+  height: 410px;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+
+    span {
+      font-size: 28px;
+      color: #3fa8df;
+    }
+  }
+
+  span {
+    font-size: 22px;
+  }
+}
