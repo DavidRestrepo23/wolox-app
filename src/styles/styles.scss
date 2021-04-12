@@ -10,8 +10,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
-  
-  
+
   ul {
     display: flex;
     li {
@@ -151,7 +150,6 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 
-
   h2 {
     font-size: 28px;
     font-weight: 600;
@@ -165,4 +163,113 @@ footer {
   span {
     font-size: 22px;
   }
+}
+
+.header-auth {
+  span {
+    color: #9fc739;
+    font-size: 25px;
+  }
+}
+
+.form {
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  input {
+    margin: 0 0 10px 0;
+    height: 35px;
+    border: 1px solid #9fc739;
+    width: 100%;
+    border-radius: 20px;
+
+    &::placeholder {
+      font-family: "Montserrat", sans-serif !important;
+    }
+
+    &:focus {
+      outline: 0;
+      border: 1px solid #3fa8df;
+    }
+  }
+
+  .css-yk16xz-control {
+    height: 30px;
+    border: 1px solid #9fc739;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid #3fa8df;
+    }
+
+    .css-g1d714-ValueContainer {
+      height: 30px;
+
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+
+    .css-2b097c-container {
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+
+    .css-1wa3eu0-placeholder {
+      font-family: "Montserrat", sans-serif !important;
+    }
+  }
+
+  .css-1pahdxg-control {
+    height: 35px !important;
+
+    &:focus {
+      outline: 0 !important;
+    }
+  }
+
+  form {
+    background: #f5fce3;
+    padding: 30px;
+  }
+
+  .btn-submit {
+    border: 0;
+    background-color: #3fa8df;
+    color: #fff;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 20px;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      background-color: #9fc739;
+    }
+  }
+
+  .action-content {
+    display: flex;
+    align-items: baseline;
+    a {
+      margin-left: 10px;
+      color: #9fc739;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+}
+
+.error-msg {
+  color: rgb(238, 6, 6);
 }

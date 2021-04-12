@@ -1,17 +1,19 @@
 import React from "react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import SectionOne from "./components/SectionOne";
-import SectionTwo from "./components/SectionTwo";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./components/auth/Login";
+import Landing from "./components/Landing";
+import RegisterContainer from "./containers/RegisterContainer";
+
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <SectionOne />
-      <SectionTwo />
-      <Footer />
-    </div>
+   <Router>
+     <Switch>
+       <Route exact path="/" component={Landing} />
+       <Route exact path="/login" component={Login}/>
+       <Route exact path="/register" component={RegisterContainer}/>
+     </Switch>
+   </Router>
   );
 };
 
