@@ -1,6 +1,11 @@
 import axios from "axios";
-import { CREATE_USER } from "./actionTypes";
+import { CREATE_USER, LOGIN_USER } from "./actionTypes";
 
+/**
+ *
+ * @param {*} data
+ * @returns
+ */
 export const createUser = (data) => {
   const { name, lastName, country, province, email, phone, password } = data;
 
@@ -33,6 +38,33 @@ export const createUser = (data) => {
             phone: phone,
             token: response.data.token,
           },
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+/**
+ *
+ * @param {*} data
+ * @returns
+ */
+export const loginUser = (data) => {
+  const { mail, password } = data;
+
+  return async (dispatch) => {
+    await axios
+      .post(
+        "http://private-8e8921-woloxfrontendinverview.apiary-mock.com/login",
+        { mail: mail, password: password },
+        { headers: { "Content-Type": "application/json" } }
+      )
+      .then((response) => {
+        return dispatch({
+          type: LOGIN_USER,
+          payload: response.data.token,
         });
       })
       .catch((err) => {

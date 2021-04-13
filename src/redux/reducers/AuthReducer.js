@@ -11,7 +11,6 @@ const initialState = {
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_USER":
-      localStorage.setItem("token", action.payload.token);
       localStorage.setItem(
         "user",
         JSON.stringify({
@@ -22,14 +21,20 @@ const AuthReducer = (state = initialState, action) => {
       );
       return {
         ...state,
-        auth: true,
-        token: action.payload.token,
         user: {
           name: action.payload.name,
           lastName: action.payload.lastname,
           email: action.payload.mail,
         },
       };
+    case "LOGIN_USER":
+      localStorage.setItem("token", action.payload);
+      return {
+        ...state,
+        auth: true,
+        token: action.payload,
+      };
+
     default:
       return state;
   }
