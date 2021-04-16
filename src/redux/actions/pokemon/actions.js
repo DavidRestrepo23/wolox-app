@@ -1,8 +1,11 @@
 import axios from "axios";
-import { LIST_POKEMONS } from "./actionTypes";
+import { LIST_POKEMONS, FIND_POKEMON } from "./actionTypes";
 
-/**`texto de cadena de caracteres`
+/**
  *
+ * @param {*} firstItem
+ * @param {*} limit
+ * @returns
  */
 export const getAllPokemons = (firstItem = 0, limit = 20) => {
   return async (dispatch) => {
@@ -45,6 +48,35 @@ export const getAllPokemons = (firstItem = 0, limit = 20) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+/**
+ *
+ * @param {*} pokemon
+ * @returns
+ */
+export const findPokemonByNameOrId = (pokemon) => {
+  return async (dispatch) => {
+    await axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
+      .then((response) => {
+        return dispatch({
+          type: FIND_POKEMON,
+          payload: [
+            {
+              name: response.data.name,
+              id: response.data.id,
+              height: response.data.height,
+              weight: response.data.weight,
+              types: response.data.types,
+              sprites: response.data.sprites.front_default,
+              moves: response.data.moves,
+            },
+          ],
+        });
+      })
+      .catch((err) => {});
   };
 };
 

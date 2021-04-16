@@ -5,14 +5,13 @@ const initialState = {
     nextPage: null,
     prevPage: null,
     itemsPerPage: 0,
-    firstItem:0
+    firstItem: 0,
   },
 };
 
 const PokemonReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LIST_POKEMONS":
-      console.log();
       return {
         ...state,
         pokemons: action.payload,
@@ -21,11 +20,17 @@ const PokemonReducer = (state = initialState, action) => {
           nextPage: action.paginate.nextPage,
           prevPage: action.paginate.prevPage,
           itemsPerPage: action.paginate.itemsPerPage,
-          firstItem: 0
+          firstItem: 0,
         },
+      };
+    case "FIND_POKEMON":
+      return {
+        ...state,
+        pokemons: action.payload
       };
     default:
       return state;
+      
   }
 };
 

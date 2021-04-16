@@ -21,6 +21,7 @@ const Pokemons = (props) => {
                   <SearchPokemon
                     handleOnChangeSearch={props.handleOnChangeSearch}
                     handleOnClickSearch={props.handleOnClickSearch}
+                    pokemonFind={props.pokemonFind}
                   />
                 </div>
                 <div>

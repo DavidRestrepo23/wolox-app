@@ -17,6 +17,9 @@ const SearchPokemon = (props) => {
             Buscar
           </button>
         </label>
+        <small className="error-msg">
+          {props.pokemonFind !== "" && props.pokemonFind}
+        </small>
       </div>
     </>
   );

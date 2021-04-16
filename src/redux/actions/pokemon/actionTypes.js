@@ -1,1 +1,2 @@
 export const LIST_POKEMONS = "LIST_POKEMONS";
+export const FIND_POKEMON = "FIND_POKEMON";

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Pokemons from "../components/pokemons/Pokemons";
-import { getAllPokemons } from "../redux/actions/pokemon/actions";
+import {
+  getAllPokemons,
+  findPokemonByNameOrId,
+} from "../redux/actions/pokemon/actions";
 
 const PokemonContainer = (props) => {
   const [compare, setCompare] = useState([]);
@@ -9,7 +12,7 @@ const PokemonContainer = (props) => {
   const [pokemonsCompare, setPokemonsCompare] = useState(undefined);
   const [canCompareBtn, setCanCompareBtn] = useState(true);
   const [searchPokemon, setSearchPokemon] = useState("");
-  const [pokemonFind, setPokemonFind] = useState(undefined);
+  const [pokemonFind, setPokemonFind] = useState("");
   const [activePage, setActivePage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
   const [currentPage, setCurrentPage] = useState(0);
@@ -73,14 +76,23 @@ const PokemonContainer = (props) => {
    */
   const handleOnClickSearch = (e) => {
     e.preventDefault();
-    var pokemonFind = props.pokemons.find(
-      (x) =>
-        x.id === parseInt(searchPokemon) ||
-        x.name === searchPokemon.toLocaleLowerCase()
-    );
 
-    if (pokemonFind) {
-      setPokemonFind(pokemonFind);
+    if (searchPokemon === "") {
+      props.getAllPokemons();
+    } else {
+      var pokemonFind = props.pokemons.find(
+        (x) =>
+          x.id === parseInt(searchPokemon) ||
+          x.name === searchPokemon.toLocaleLowerCase()
+      );
+
+      if (pokemonFind) {
+        props.findPokemonByNameOrId(pokemonFind.id);
+        setPokemonFind("");
+        setSearchPokemon("");
+      } else {
+        setPokemonFind("No se encontro el pokemon");
+      }
     }
   };
 
@@ -116,6 +128,7 @@ const PokemonContainer = (props) => {
         activePage={activePage}
         handlePageChange={handlePageChange}
         handleSelectItemsPerPage={handleSelectItemsPerPage}
+        pokemonFind={pokemonFind}
       />
     </>
   );
@@ -130,6 +143,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   getAllPokemons,
+  findPokemonByNameOrId,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonContainer);
