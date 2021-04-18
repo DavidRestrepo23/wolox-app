@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Login from "../components/auth/Login";
-import { loginUser } from "../redux/actions/auth/actions";
+import { loginUser, getUserAuth } from "../redux/actions/auth/actions";
 
 const LoginContainer = (props) => {
   const [dataForm, setDataForm] = useState({
     mail: null,
     password: null,
   });
+
+  useEffect(() => {
+
+    props.getUserAuth();
+
+    if (props.auth) {
+      props.history.push("/pokemons");
+    }
+
+    
+  }, [props.auth, props.history, props.getUserAuth]);
 
   const [validatenForm, setValidateForm] = useState(undefined);
 
@@ -53,11 +64,14 @@ const LoginContainer = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return state;
+  return {
+    auth: state.AuthReducer.auth,
+  };
 };
 
 const mapDispatchToProps = {
-    loginUser
+  loginUser,
+  getUserAuth,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

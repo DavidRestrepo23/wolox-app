@@ -6,6 +6,7 @@ const initialState = {
     lastName: null,
     email: null,
   },
+  msg: "",
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -33,6 +34,12 @@ const AuthReducer = (state = initialState, action) => {
         ...state,
         auth: true,
         token: action.payload,
+      };
+    case "GET_USER_AUTH":
+      return {
+        ...state,
+        auth: action.payload,
+        msg: action.msg,
       };
 
     default:

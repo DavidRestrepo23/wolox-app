@@ -5,6 +5,7 @@ import {
   getAllPokemons,
   findPokemonByNameOrId,
 } from "../redux/actions/pokemon/actions";
+import { getUserAuth } from "../redux/actions/auth/actions";
 
 const PokemonContainer = (props) => {
   const [compare, setCompare] = useState([]);
@@ -21,7 +22,8 @@ const PokemonContainer = (props) => {
    */
   useEffect(() => {
     props.getAllPokemons();
-  }, [props.getAllPokemons]);
+    props.getUserAuth();
+  }, [props.getAllPokemons, props.getUserAuth]);
 
   /**
    * Get Pokemon checkboxs
@@ -144,6 +146,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getAllPokemons,
   findPokemonByNameOrId,
+  getUserAuth,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonContainer);

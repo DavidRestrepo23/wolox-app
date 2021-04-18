@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Register from "../components/auth/Register";
 import { getAllCountries } from "../redux/actions/countries/actions";
-import { createUser } from "../redux/actions/auth/actions";
+import { createUser, getUserAuth } from "../redux/actions/auth/actions";
 
 const RegisterContainer = (props) => {
   /**
@@ -29,7 +29,12 @@ const RegisterContainer = (props) => {
    */
   useEffect(() => {
     props.getAllCountries();
-  }, [props.getAllCountries]);
+    props.getUserAuth();
+
+    if (props.auth) {
+      props.history.push("/pokemons");
+    }
+  }, [props.getAllCountries, props.auth, props.history, props.getUserAuth]);
 
   /**
    *
@@ -114,6 +119,7 @@ const RegisterContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     countries: state.CountryReducer.countries,
+    auth: state.AuthReducer.auth,
   };
 };
 
@@ -123,6 +129,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getAllCountries,
   createUser,
+  getUserAuth,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterContainer);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CREATE_USER, LOGIN_USER } from "./actionTypes";
+import { CREATE_USER, LOGIN_USER, GET_USER_AUTH } from "./actionTypes";
 
 /**
  *
@@ -70,5 +70,20 @@ export const loginUser = (data) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+/**
+ *
+ */
+export const getUserAuth = () => {
+  return async (dispatch) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      return dispatch({
+        type: GET_USER_AUTH,
+        payload: true,
+      });
+    }
   };
 };
