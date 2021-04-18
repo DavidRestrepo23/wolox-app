@@ -1,5 +1,5 @@
 import React from "react";
-import ic_wolox_footer from '../assets/Ic_Wolox_Footer.svg'
+import ic_wolox_footer from "../assets/Ic_Wolox_Footer.svg";
 
 const Footer = () => {
   return (
@@ -14,9 +14,14 @@ const Footer = () => {
                 </h2>
                 <span>Te invitamos a ver más información</span>
               </div>
-              <br /><br />
+              <br />
+              <br />
               <div>
-                <a href="#" className="linkButton fullColor">
+                <a
+                  href="https://www.wolox.com.ar/"
+                  target="_blank"
+                  className="linkButton fullColor"
+                >
                   Conocer más
                 </a>
               </div>
@@ -26,7 +31,7 @@ const Footer = () => {
         <div className="content">
           <div className="row">
             <div className="grid-12 center">
-              <img src={ic_wolox_footer} width="70" alt=""/>
+              <img src={ic_wolox_footer} width="70" alt="" />
             </div>
           </div>
         </div>

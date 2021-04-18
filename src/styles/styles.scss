@@ -3,6 +3,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 300 !important;
+  padding-top: 70px;
 }
 
 header {
@@ -10,6 +11,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
 
   ul {
     display: flex;
@@ -488,5 +493,21 @@ footer {
     height: 35px;
     margin-left: 5px;
   }
-
 }
+
+.err {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+}
+
+.terms {
+
+  text-align: center;
+  font-size: 12px;
+  input[type="checkbox"] {
+    height: 10px;
+    text-align: left !important;
+  }
+}
+

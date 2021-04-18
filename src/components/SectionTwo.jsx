@@ -25,7 +25,7 @@ const SectionTwo = () => {
                       <img src={twLogo} width="30" alt="" />
                     </div>
                     <div>
-                      <a href="#" className="tw-wolox">
+                      <a href="https://twitter.com/Wolox" target="_blank" className="tw-wolox">
                         @Wolox
                       </a>
                     </div>
@@ -33,7 +33,7 @@ const SectionTwo = () => {
                 </div>
                 <br />
                 <div>
-                  <a href="#" className="linkButton txt-white">
+                  <a href="https://twitter.com/Wolox" target="_blank" className="linkButton txt-white">
                     Siguenos
                   </a>
                 </div>
@@ -49,7 +49,7 @@ const SectionTwo = () => {
           </div>
         </div>
       </section>
-      <section className="benefits">
+      <section className="benefits" id="benefits">
         <div className="content">
           <div className="row">
             <div className="grid-12 center">

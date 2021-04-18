@@ -4,13 +4,13 @@ import LoginContainer from "./containers/LoginContainer";
 import PokemonContainer from "./containers/PokemonContainer";
 import RegisterContainer from "./containers/RegisterContainer";
 import PrivateRoute from "./containers/PrivateRoute";
-import LandingContainer from "./containers/LandingContainer";
+import Landing from "./components/Landing";
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={LandingContainer} />
+        <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={LoginContainer} />
         <Route exact path="/register" component={RegisterContainer} />
         <PrivateRoute exact path="/pokemons" component={PokemonContainer} />

@@ -13,7 +13,7 @@ const Paginate = (props) => {
                 <select onChange={props.handleSelectItemsPerPage}>
                   <option value="5">5</option>
                   <option value="10">10</option>
-                  <option value="20" selected={true}>
+                  <option value="20" selected>
                     20
                   </option>
                   <option value="50">50</option>

@@ -1,6 +1,5 @@
 import React from "react";
-import Footer from "../Footer";
-import Header from "../Header";
+import Layout from "../Layout";
 import ListPokemon from "./ListPokemon";
 import Modal from "react-modal";
 import ComparePokemons from "./ComparePokemons";
@@ -10,8 +9,8 @@ import Paginate from "./Pagination";
 const Pokemons = (props) => {
   return (
     <>
-      <Header />
-      <section className="header-auth">
+     <Layout>
+     <section className="header-auth">
         <div className="content">
           <div className="row">
             <div className="grid-12 center">
@@ -72,7 +71,7 @@ const Pokemons = (props) => {
         activePage={props.activePage}
         handleSelectItemsPerPage={props.handleSelectItemsPerPage}
       />
-      <Footer />
+     </Layout>
     </>
   );
 };

@@ -19,6 +19,19 @@ const RegisterContainer = (props) => {
     password: "",
     repeatPassword: "",
   });
+
+  const [errorForm, setErrorForm] = useState({
+    name: null,
+    lastName: null,
+    country: null,
+    province: null,
+    email: null,
+    phone: null,
+    password: null,
+    repeatPassword: null,
+    error: false,
+  });
+
   /**
    *
    */
@@ -41,6 +54,7 @@ const RegisterContainer = (props) => {
    * @param {*} e
    */
   const handleOnChangeForm = (e) => {
+    validationInput(e);
     setDataForm({ ...dataForm, [e.target.name]: e.target.value });
   };
 
@@ -59,6 +73,7 @@ const RegisterContainer = (props) => {
    */
   const handleOnSubmitForm = (e) => {
     e.preventDefault();
+
     const result = validationForm(dataForm);
 
     if (result !== true) {
@@ -100,10 +115,89 @@ const RegisterContainer = (props) => {
     }
   };
 
+  const validationInput = (e) => {
+    /** Name LastName */
+    if (e.target.name === "name" || e.target.name === "lastName") {
+      if (e.target.value.length > 30) {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]: "Solo se permiten 30 caracteres.",
+          error: true,
+        });
+      } else {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]: null,
+          error: false,
+        });
+      }
+    }
+
+    /** Email */
+    if (e.target.name === "email") {
+      const regx = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        e.target.value
+      );
+
+      if (!regx) {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]: "El correo no tiene el formato correcto",
+          error: true,
+        });
+      } else {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]: null,
+          error: false,
+        });
+      }
+    }
+    /** Phone */
+    if (e.target.name === "phone") {
+      const regx = /^\d+$/.test(e.target.value);
+      if (!regx || e.target.value.length > 10) {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]:
+            "Solo se permiten valores númericos y un máximo de 10 números.",
+          error: true,
+        });
+      } else {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]: null,
+          error: false,
+        });
+      }
+    }
+
+    /** Password - repeatPassword */
+    if (e.target.name === "password" || e.target.name === "repeatPassword") {
+      const regx = /^[a-z0-9]+$/i.test(e.target.value);
+
+      if (!regx || e.target.value.length < 6) {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]:
+            "La contraseña debé ser Alfanúmerica y mayor a 6 caracteres.",
+          error: true,
+        });
+      } else {
+        setErrorForm({
+          ...errorForm,
+          [e.target.name]: null,
+          error: false,
+        });
+      }
+    }
+  };
+
   return (
     <Register
       countries={props.countries}
       validateForm={validateForm}
+      errorForm={errorForm}
       handleOnChangeForm={handleOnChangeForm}
       handleOnChangeSelect={handleOnChangeSelect}
       handleOnSubmitForm={handleOnSubmitForm}

@@ -16,7 +16,6 @@ const LoginContainer = (props) => {
     if (props.auth) {
       props.history.push("/pokemons");
     }
-
     
   }, [props.auth, props.history, props.getUserAuth]);
 

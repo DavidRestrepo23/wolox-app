@@ -4,7 +4,7 @@ import headerImage from "../assets/Img Hero/Ic_ilustra_Hero.png";
 const SectionOne = () => {
   return (
     <>
-      <section className="section1">
+      <section className="section1" id="header">
         <div className="content">
           <div className="row align-items-center">
             <div className="grid-6">
