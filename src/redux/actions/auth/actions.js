@@ -23,7 +23,10 @@ export const createUser = (data) => {
           password: password,
         },
         {
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
         }
       )
       .then((response) => {
@@ -59,7 +62,12 @@ export const loginUser = (data) => {
       .post(
         "http://private-8e8921-woloxfrontendinverview.apiary-mock.com/login",
         { mail: mail, password: password },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       )
       .then((response) => {
         return dispatch({
