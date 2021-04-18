@@ -25,7 +25,9 @@ export const createUser = (data) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Origin": "http://private-8e8921-woloxfrontendinverview.apiary-mock.com"
+
           },
         }
       )
@@ -65,7 +67,8 @@ export const loginUser = (data) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Origin": "http://private-8e8921-woloxfrontendinverview.apiary-mock.com"
           },
         }
       )
