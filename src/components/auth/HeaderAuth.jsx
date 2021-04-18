@@ -7,7 +7,7 @@ const HeaderAuth = () => {
         <div className="row">
           <div className="grid-12 center">
             <h1>
-              Bienvenido a <span>Wolox</span>
+              Bienvenido a <span>Wolox</span> Prueba
             </h1>
           </div>
         </div>

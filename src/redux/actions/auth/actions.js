@@ -25,9 +25,10 @@ export const createUser = (data) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Allow-Origin": "http://private-8e8921-woloxfrontendinverview.apiary-mock.com"
-
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers":
+              "x-access-token, Origin, X-Requested-With, Content-Type, Accept",
           },
         }
       )
@@ -67,8 +68,10 @@ export const loginUser = (data) => {
         {
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Allow-Origin": "http://private-8e8921-woloxfrontendinverview.apiary-mock.com"
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers":
+              "x-access-token, Origin, X-Requested-With, Content-Type, Accept",
           },
         }
       )
